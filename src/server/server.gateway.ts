@@ -3,7 +3,7 @@ import { ServerService } from './server.service';
 import { Socket, Server } from "socket.io";
 import { MoveDto } from './dto/move.dto';
 
-@WebSocketGateway(3002)
+@WebSocketGateway(3002, { cors: "*" })
 export class ServerGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer() server: Server;
   constructor(private readonly serverService: ServerService) { }
